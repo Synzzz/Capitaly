@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="capitaly">
+  <ClassDiagramComponents>
+    <Class name="Capitaly" package="capitaly" visibility="public" xPosition="989.0" yPosition="29.0">
+      <Fields>
+        <Field name="g" type="Game" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="theFile"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="playCapitaly" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Careful" package="capitaly" visibility="public" xPosition="406.0" yPosition="614.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="willBuy" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="willBuild" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dice" package="capitaly" visibility="public" xPosition="657.0" yPosition="188.0">
+      <Fields>
+        <Field name="rand" type="Random" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="rollDice" returnType="int" visibility="public"/>
+        <Method name="overroll" returnType="boolean" visibility="public">
+          <Argument type="int" name="r"/>
+          <Argument type="Game" name="g"/>
+          <Argument type="Player" name="p"/>
+        </Method>
+        <Method name="overrolled" returnType="int" visibility="public">
+          <Argument type="int" name="r"/>
+          <Argument type="Game" name="g"/>
+          <Argument type="Player" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Field" package="capitaly" visibility="public" isAbstract="true" xPosition="1624.0" yPosition="636.0">
+      <Fields>
+        <Field name="fieldCost" type="int" visibility="private"/>
+        <Field name="fieldOwner" type="String" visibility="private"/>
+        <Field name="Owner" type="Player" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getOwner" returnType="Player" visibility="public"/>
+        <Method name="setOwner" returnType="void" visibility="public">
+          <Argument type="Player" name="Owner"/>
+        </Method>
+        <Method name="getFieldCost" returnType="int" visibility="public"/>
+        <Method name="setFieldCost" returnType="void" visibility="public">
+          <Argument type="int" name="fieldCost"/>
+        </Method>
+        <Method name="getFieldOwner" returnType="String" visibility="public"/>
+        <Method name="setFieldOwner" returnType="void" visibility="public">
+          <Argument type="String" name="fieldOwner"/>
+        </Method>
+        <Method name="canBuild" returnType="boolean" visibility="public" isAbstract="true"/>
+        <Method name="buildHouse" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="loseProperty" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="Game" package="capitaly" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="fieldCount" type="int" visibility="private"/>
+        <Field name="playerCount" type="int" visibility="private"/>
+        <Field name="gameFile" type="File" visibility="private"/>
+        <Field name="players" type="ArrayList&lt;Player&gt;" visibility="private"/>
+        <Field name="table" type="ArrayList&lt;Field&gt;" visibility="private"/>
+        <Field name="rolls" type="ArrayList&lt;Integer&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="theFile"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="indexof" returnType="int" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="getTable" returnType="ArrayList&lt;Field&gt;" visibility="public"/>
+        <Method name="addToTable" returnType="void" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="getFieldCount" returnType="int" visibility="public"/>
+        <Method name="setFieldCount" returnType="void" visibility="public">
+          <Argument type="int" name="fieldCount"/>
+        </Method>
+        <Method name="getPlayerCount" returnType="int" visibility="public"/>
+        <Method name="setPlayerCount" returnType="void" visibility="public">
+          <Argument type="int" name="playerCount"/>
+        </Method>
+        <Method name="getPlayers" returnType="ArrayList&lt;Player&gt;" visibility="public"/>
+        <Method name="addToPlayers" returnType="void" visibility="public">
+          <Argument type="Player" name="p"/>
+        </Method>
+        <Method name="getField" returnType="Field" visibility="public">
+          <Argument type="int" name="f"/>
+        </Method>
+        <Method name="addToRolls" returnType="void" visibility="public">
+          <Argument type="int" name="r"/>
+        </Method>
+        <Method name="getRolls" returnType="ArrayList&lt;Integer&gt;" visibility="public"/>
+        <Method name="playerIndex" returnType="int" visibility="public">
+          <Argument type="Player" name="s"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Greedy" package="capitaly" visibility="public" xPosition="406.0" yPosition="843.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="willBuy" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="willBuild" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Luck" package="capitaly" visibility="public" xPosition="1992.0" yPosition="653.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="i"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="canBuild" returnType="boolean" visibility="public"/>
+        <Method name="buildHouse" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="capitaly" visibility="public" xPosition="1865.0" yPosition="200.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Player" package="capitaly" visibility="public" isAbstract="true" xPosition="657.0" yPosition="530.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="money" type="int" visibility="private"/>
+        <Field name="owned" type="ArrayList&lt;Integer&gt;" visibility="private"/>
+        <Field name="currentField" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getMoney" returnType="int" visibility="public"/>
+        <Method name="setMoney" returnType="void" visibility="public">
+          <Argument type="int" name="money"/>
+        </Method>
+        <Method name="getOwned" returnType="ArrayList&lt;Integer&gt;" visibility="public"/>
+        <Method name="getCurrentField" returnType="int" visibility="public"/>
+        <Method name="setCurrentField" returnType="void" visibility="public">
+          <Argument type="int" name="currentField"/>
+        </Method>
+        <Method name="hasEnoughMoney" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="enoughToBuild" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="hasToPay" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="buyProperty" returnType="void" visibility="public">
+          <Argument type="Field" name="f"/>
+          <Argument type="Game" name="g"/>
+        </Method>
+        <Method name="pay" returnType="void" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="willBuy" returnType="boolean" visibility="public" isAbstract="true">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="willBuild" returnType="boolean" visibility="public" isAbstract="true">
+          <Argument type="Field" name="f"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Property" package="capitaly" visibility="public" xPosition="1992.0" yPosition="839.0">
+      <Fields>
+        <Field name="hasHouse" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isHasHouse" returnType="boolean" visibility="public"/>
+        <Method name="setIsHouse" returnType="void" visibility="public">
+          <Argument type="boolean" name="isHouse"/>
+        </Method>
+        <Method name="canBuild" returnType="boolean" visibility="public"/>
+        <Method name="buildHouse" returnType="void" visibility="public"/>
+        <Method name="loseProperty" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Service" package="capitaly" visibility="public" xPosition="1992.0" yPosition="453.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="i"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="canBuild" returnType="boolean" visibility="public"/>
+        <Method name="buildHouse" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Tactical" package="capitaly" visibility="public" xPosition="406.0" yPosition="399.0">
+      <Fields>
+        <Field name="cooldown" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="willBuy" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+        <Method name="willBuild" returnType="boolean" visibility="public">
+          <Argument type="Field" name="f"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="capitaly.Service" target="capitaly.Field"/>
+    <UseRelation source="capitaly.Player" target="capitaly.Field" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="capitaly.Careful" target="capitaly.Field" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="players" source="capitaly.Game" target="capitaly.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Player&gt;"/>
+    <UseRelation source="capitaly.Greedy" target="capitaly.Field" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="capitaly.Property" target="capitaly.Field"/>
+    <UseRelation source="capitaly.Game" target="capitaly.Field" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="capitaly.Greedy" target="capitaly.Player"/>
+    <HasRelation name="table" source="capitaly.Game" target="capitaly.Field" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Field&gt;"/>
+    <UseRelation source="capitaly.Tactical" target="capitaly.Field" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="capitaly.Tactical" target="capitaly.Player"/>
+    <HasRelation name="g" source="capitaly.Capitaly" target="capitaly.Game" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="capitaly.Player" target="capitaly.Game" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="capitaly.Luck" target="capitaly.Field"/>
+    <IsRelation name="is" source="capitaly.Careful" target="capitaly.Player"/>
+    <HasRelation name="Owner" source="capitaly.Field" target="capitaly.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="capitaly.Game" target="capitaly.Player" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="capitaly.Field" target="capitaly.Player" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="capitaly.Dice" target="capitaly.Player" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
