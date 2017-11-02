@@ -7,7 +7,9 @@ public class Tactical extends Player {
     public Tactical(String name) {
         super(name);
     }
-
+    /**
+    *visszaadja vasarol-e a jatekos
+    */
     @Override
     public boolean willBuy(Field f) {
         if(this.cooldown%2==0){
@@ -19,7 +21,9 @@ public class Tactical extends Player {
             return(this.hasEnoughMoney(f));
         }
     }
-    
+    /**
+    *visszaadja epit-e a jatekos
+    */
     @Override
     public boolean willBuild(Field f) {
         if(this.cooldown%2==0){

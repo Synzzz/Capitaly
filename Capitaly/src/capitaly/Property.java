@@ -6,7 +6,6 @@ public class Property extends Field {
 
     public Property () {
         this.setFieldCost(1000);
-      
     };
   
     public boolean isHasHouse(){
@@ -16,17 +15,25 @@ public class Property extends Field {
     public void setIsHouse(boolean isHouse) {
         this.hasHouse = isHouse;
     }
-    
+    /**
+    *visszaadja van-e mar haz a mezon
+    */
     @Override
      public boolean canBuild() {
         return(!this.isHasHouse());
     }
      
+    /**
+    *hazat epit a mezore
+    */
     public void buildHouse(){
          this.setIsHouse(true);
          this.setFieldCost(2000);
          this.getOwner().setMoney(this.getOwner().getMoney()-4000);
     }
+    /**
+    *visszaallitja a mezot az eredeti vasarlas elotti allapotba
+    */
     @Override
     public void loseProperty(){
         this.setIsHouse(false);

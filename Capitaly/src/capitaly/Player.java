@@ -33,18 +33,27 @@ public abstract  class Player {
         this.currentField = currentField;
     }
     
+    /**
+    *visszaadja van-e eleg penze a jatekosnak hogy fizessen
+    */
     public boolean hasEnoughMoney(Field f){
         return((this.money-f.getFieldCost())>0);
     }
-    
+    /**
+    *visszaadja van-e eleg penze a jatekosnak hogy epitsen
+    */
     public boolean enoughToBuild(Field f){
         return((this.money-4000)>0);
     }
-    
+    /**
+    *visszaadja kell-e a jatekosnak fizetnie a mezore lepesert
+    */
     public boolean hasToPay(Field f){
         return (!(this.name==f.getFieldOwner()));
     }
-    
+    /**
+    *megvasarolja a mezot
+    */
     public void buyProperty(Field f,Game g){
         f.setFieldOwner(this.getName());
         f.setOwner(this);
@@ -52,7 +61,9 @@ public abstract  class Player {
         this.money-=1000;
         this.owned.add(g.indexof(f));
     }
-    
+    /**
+    *fizet a mezo tulajdonosanak
+    */
     public void pay(Field f){
         if (f instanceof Property) {
             f.getOwner().setMoney((f.getFieldCost()+f.getOwner().getMoney()));

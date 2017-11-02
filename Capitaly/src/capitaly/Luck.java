@@ -7,16 +7,4 @@ public class Luck extends Field {
       setFieldOwner("Bank");
   };
 
-    @Override
-    public boolean canBuild() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void buildHouse() {
-        throw new UnsupportedOperationException();
-    }
-
-    
-
 }

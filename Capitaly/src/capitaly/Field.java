@@ -28,10 +28,14 @@ public abstract class Field {
         this.fieldOwner = fieldOwner;
     }
 
-    public abstract boolean canBuild(); 
-    public abstract void buildHouse();
+    public  boolean canBuild() {
+        throw new UnsupportedOperationException();
+    } 
+    public  void buildHouse() {
+        throw new UnsupportedOperationException();
+    }
 
-    void loseProperty() {
+    public  void loseProperty() {
         throw new UnsupportedOperationException();
     }
 }

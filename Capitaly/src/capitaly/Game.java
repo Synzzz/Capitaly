@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Game {
@@ -13,9 +14,7 @@ public class Game {
     private   ArrayList<Field> table = new ArrayList<Field>();
     private   ArrayList<Integer> rolls = new ArrayList<Integer>();
 
-    public int indexof(Field f){
-            return (this.getTable().indexOf(f));
-    }
+    
     public  ArrayList<Field> getTable() {
         return table;
     }
@@ -49,15 +48,33 @@ public class Game {
     public  ArrayList<Integer> getRolls() {
         return rolls;
     }
-    
-     public int playerIndex(Player s){
+    /**
+    *visszaadja a mezo indexet a listaban
+    */
+    public int indexof(Field f){
+            return (this.getTable().indexOf(f));
+    }
+    /**
+    *visszaadja a jatekos indexet a listaban
+    */
+    public int playerIndex(Player s){
             return (this.getPlayers().indexOf(s));
     }
-     
+    /**
+    *elkesziti a jatekot a fajlbol,kiolvassa a mezok szamat,elkesziti a tablat a mezokbol,
+    *kiolvassa a jatekosook szamat es hozzaadja oket a listahoz, ha meg vannak adva a 
+    *kockadobasok is, azt is elmenti listaban
+    */ 
     public  Game (String theFile)throws FileNotFoundException {
         this.gameFile=new File(theFile);
         Scanner rFile = new Scanner(gameFile);
-        int n= rFile.nextInt();
+        int n=0;
+        try{
+            n= rFile.nextInt();
+        }catch(NoSuchElementException e){
+            System.err.println("The file is empty or the data format is incorrect");
+            System.exit(0);
+        }    
         //read table
         this.setFieldCount(n);
         for(int i=0;i<n;i++){

@@ -15,7 +15,10 @@ public class Capitaly {
     public Capitaly(String theFile) throws FileNotFoundException{
         this.g=new Game(theFile);
     }
-        
+    
+    /**
+    *lejatssza a jatekot a bekert vagy elore megadott szamu korig
+    */
     public void playCapitaly(){    
         Dice d= new Dice();
         boolean rollInFile=false;
