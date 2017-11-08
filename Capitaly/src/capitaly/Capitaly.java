@@ -37,7 +37,6 @@ public class Capitaly {
         while(x<z && this.g.getPlayers().size()>1){
             for (Iterator<Player> iterator = copyplayers.iterator(); iterator.hasNext();) {    
             Player s = iterator.next();
-                //no copypasta protection
                 Field f=this.g.getField(s.getCurrentField());
                 if(rollInFile){
                     roll=this.g.getRolls().get(x);
